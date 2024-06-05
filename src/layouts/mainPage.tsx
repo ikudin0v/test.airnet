@@ -23,7 +23,7 @@ const MainPage = () => {
   };
 
   async function getDayOff() {
-    const { data } = await httpService.get("http://isdayoff.ru/api/getdata?year=" + month[1] + "&month=" + (month[0] + 1), {
+    const { data } = await httpService.get("https://isdayoff.ru/api/getdata?year=" + month[1] + "&month=" + (month[0] + 1), {
       transformResponse: [(data) => data],
     });
     setDaysOff(data.split(""));
