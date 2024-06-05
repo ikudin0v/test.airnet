@@ -32,7 +32,7 @@ const ModalData = ({ day, cancel }: IModalData) => {
     if ((document.getElementById("newTaskInput") as HTMLInputElement).value !== "") {
       let task: ITask = { id: 0, date: 0, owner: "", text: "", state: false };
       task.id = new Date().getTime();
-      task.date = new Date(month[1], month[0], day - 1).getTime();
+      task.date = new Date(month[1], month[0], day).getTime();
       task.owner = activeProfile;
       task.text = (document.getElementById("newTaskInput") as HTMLInputElement).value;
       task.state = false;
@@ -47,7 +47,7 @@ const ModalData = ({ day, cancel }: IModalData) => {
       <div className="taskList">Активные задачи:</div>
       {tasks
         ? tasks
-            .filter((task: ITask) => task.owner === activeProfile && new Date(task.date).getDate() === day - 1 && task.state === false)
+            .filter((task: ITask) => task.owner === activeProfile && new Date(task.date).getDate() === day && task.state === false)
             .map((task: ITask) => (
               <div className="task">
                 <span>{task.text}</span>
@@ -71,7 +71,7 @@ const ModalData = ({ day, cancel }: IModalData) => {
       <div className="taskList">Выполненные задачи:</div>
       {tasks
         ? tasks
-            .filter((task: ITask) => task.owner === activeProfile && new Date(task.date).getDate() === day - 1 && task.state === true)
+            .filter((task: ITask) => task.owner === activeProfile && new Date(task.date).getDate() === day && task.state === true)
             .map((task: ITask) => (
               <div className="task">
                 <span>{task.text}</span>
