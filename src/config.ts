@@ -1,3 +1,3 @@
 export const CONFIG = {
-	API_URL:"http://test-airnet-default-rtdb.firebaseio.com/"
+	API_URL:"https://test-airnet-default-rtdb.firebaseio.com/"
 }
